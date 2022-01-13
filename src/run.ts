@@ -4,7 +4,6 @@ import fs from "fs-extra";
 import { getPackages, Package } from "@manypkg/get-packages";
 import path from "path";
 import * as semver from "semver";
-import * as core from "@actions/core";
 import {
   getChangelogEntry,
   execWithOutput,
