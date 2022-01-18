@@ -22,12 +22,9 @@ const getOptionalInput = (name: string) => core.getInput(name) || undefined;
   }
 
   console.log("setting GitHub credentials");
-
-  const gitUser = getOptionalInput("gitUser") || "github-actions[bot]";
-
   await fs.writeFile(
     `${process.env.HOME}/.netrc`,
-    `machine github.com\nlogin ${gitUser}\npassword ${githubToken}`
+    `machine github.com\nlogin github-actions[bot]\npassword ${githubToken}`
   );
 
   const inputCwd = core.getInput("cwd");

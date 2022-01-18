@@ -24,9 +24,6 @@ inputs:
   cwd:
     description: Sets the cwd for the node process. Default to `process.cwd()`
     required: false
-  gitUser:
-    description: Sets the cwd for the node process. Default to `process.cwd()`
-    required: false
   branch:
     description: Sets the cwd for the node process. Default to `process.cwd()`
     required: false
