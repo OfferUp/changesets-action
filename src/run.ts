@@ -210,7 +210,7 @@ export async function runVersion({
     });
   }
 
-  let searchQuery = `repo:${repo}+state:open+head:${versionBranch}+base:${branch}`;
+  let searchQuery = `repo:${repo}+state:open+head:${versionBranch}+base:${baseBranch}`;
   let searchResultPromise = octokit.search.issuesAndPullRequests({
     q: searchQuery,
   });
@@ -222,13 +222,13 @@ export async function runVersion({
         hasPublishScript
           ? `the packages will be published to npm automatically`
           : `publish to npm yourself or [setup this action to publish automatically](https://github.com/changesets/action#with-publishing)`
-      }. If you're not ready to do a release yet, that's fine, whenever you add more changesets to ${branch}, this PR will be updated.
+      }. If you're not ready to do a release yet, that's fine, whenever you add more changesets to ${baseBranch}, this PR will be updated.
 ${
   !!preState
     ? `
 ⚠️⚠️⚠️⚠️⚠️⚠️
 
-\`${branch}\` is currently in **pre mode** so this branch has prereleases rather than normal releases. If you want to exit prereleases, run \`changeset pre exit\` on \`${branch}\`.
+\`${baseBranch}\` is currently in **pre mode** so this branch has prereleases rather than normal releases. If you want to exit prereleases, run \`changeset pre exit\` on \`${baseBranch}\`.
 
 ⚠️⚠️⚠️⚠️⚠️⚠️
 `
