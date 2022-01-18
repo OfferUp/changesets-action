@@ -22,9 +22,12 @@ const getOptionalInput = (name: string) => core.getInput(name) || undefined;
   }
 
   console.log("setting GitHub credentials");
+
+  const gitUser = getOptionalInput("gitUser") || "github-actions[bot]";
+
   await fs.writeFile(
     `${process.env.HOME}/.netrc`,
-    `machine github.com\nlogin github-actions[bot]\npassword ${githubToken}`
+    `machine github.com\nlogin ${gitUser}\npassword ${githubToken}`
   );
 
   const inputCwd = core.getInput("cwd");
@@ -102,6 +105,7 @@ const getOptionalInput = (name: string) => core.getInput(name) || undefined;
         prTitle: getOptionalInput("title"),
         commitMessage: getOptionalInput("commit"),
         hasPublishScript,
+        inputBranch: getOptionalInput("branch"),
       });
 
       core.setOutput("pullRequestNumber", String(pullRequestNumber));

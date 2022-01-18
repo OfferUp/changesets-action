@@ -57,9 +57,9 @@ describe("version", () => {
       () => ({ data: { items: [] } })
     );
 
-    mockedGithubMethods.pulls.create.mockImplementationOnce(
-      () => ({ data: { number: 123 } })
-    );
+    mockedGithubMethods.pulls.create.mockImplementationOnce(() => ({
+      data: { number: 123 },
+    }));
 
     await writeChangesets(
       [
@@ -96,9 +96,9 @@ describe("version", () => {
       () => ({ data: { items: [] } })
     );
 
-    mockedGithubMethods.pulls.create.mockImplementationOnce(
-      () => ({ data: { number: 123 } })
-    );
+    mockedGithubMethods.pulls.create.mockImplementationOnce(() => ({
+      data: { number: 123 },
+    }));
 
     await writeChangesets(
       [
@@ -131,9 +131,9 @@ describe("version", () => {
       () => ({ data: { items: [] } })
     );
 
-    mockedGithubMethods.pulls.create.mockImplementationOnce(
-      () => ({ data: { number: 123 } })
-    );
+    mockedGithubMethods.pulls.create.mockImplementationOnce(() => ({
+      data: { number: 123 },
+    }));
 
     await writeChangesets(
       [
