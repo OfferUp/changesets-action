@@ -186,8 +186,9 @@ export async function runVersion({
   inputBranch,
 }: VersionOptions): Promise<RunVersionResponse> {
   let repo = `${github.context.repo.owner}/${github.context.repo.repo}`;
+  let baseBranch = github.context.ref.replace("refs/heads/", "");
   let branch = inputBranch || github.context.ref.replace("refs/heads/", "");
-  let versionBranch = inputBranch ?? `changeset-release/${branch}`;
+  let versionBranch = inputBranch ? inputBranch : `changeset-release/${branch}`;
   let octokit = github.getOctokit(githubToken);
   let { preState } = await readChangesetState(cwd);
 
@@ -283,7 +284,7 @@ ${
     const {
       data: { number },
     } = await octokit.pulls.create({
-      base: branch,
+      base: baseBranch,
       head: versionBranch,
       title: finalPrTitle,
       body: await prBodyPromise,
