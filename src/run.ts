@@ -170,6 +170,7 @@ type VersionOptions = {
   commitMessage?: string;
   hasPublishScript?: boolean;
   inputBranch?: string;
+  inputBaseBranch?: string;
 };
 
 type RunVersionResponse = {
@@ -184,9 +185,10 @@ export async function runVersion({
   commitMessage = "Version Packages",
   hasPublishScript = false,
   inputBranch,
+  inputBaseBranch,
 }: VersionOptions): Promise<RunVersionResponse> {
   let repo = `${github.context.repo.owner}/${github.context.repo.repo}`;
-  let baseBranch = github.context.ref.replace("refs/heads/", "");
+  let baseBranch = inputBaseBranch || github.context.ref.replace("refs/heads/", "");
   let branch = inputBranch || github.context.ref.replace("refs/heads/", "");
   let versionBranch = inputBranch ? inputBranch : `changeset-release/${branch}`;
   let octokit = github.getOctokit(githubToken);
