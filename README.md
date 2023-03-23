@@ -51,7 +51,7 @@ jobs:
         run: yarn
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1.2.0
+        uses: changesets/action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -89,7 +89,7 @@ jobs:
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1.2.0
+        uses: changesets/action@v1
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
@@ -156,7 +156,7 @@ jobs:
         run: yarn
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1.2.0
+        uses: changesets/action@v1
         with:
           # this expects you to have a npm script called version that runs some logic and then calls `changeset version`.
           version: yarn version
