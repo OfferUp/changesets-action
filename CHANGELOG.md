@@ -1,5 +1,9 @@
 # @changesets/action
 
+## 1.2.0
+
+- [#1](https://github.com/OfferUp/changesets-action/pull/1) @poiley Updating repository to use node16 over node12 to eliminate deprecation notice warnings
+
 ## 1.1.0
 
 ### Minor Changes
