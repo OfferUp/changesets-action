@@ -1,5 +1,11 @@
 # @changesets/action
 
+## 1.3.0
+
+### Minor Changes
+
+- [#134](https://github.com/changesets/action/pull/134) [`2bc9cb3`](https://github.com/changesets/action/commit/2bc9cb3212a7105081cf54c6f81573aefdaed6a3) Thanks [@dmregister](https://github.com/dmregister)! - Add cwd option for projects that are not in the root directory
+
 ## 1.2.0
 
 - [#1](https://github.com/OfferUp/changesets-action/pull/1) @poiley Updating repository to use node16 over node12 to eliminate deprecation notice warnings
