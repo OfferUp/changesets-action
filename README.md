@@ -37,21 +37,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Install Dependencies
         run: yarn
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1
+        uses: changesets/action@v1.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -74,22 +74,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
           fetch-depth: 0
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Install Dependencies
         run: yarn
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
-        uses: changesets/action@v1
+        uses: changesets/action@v1.2.0
         with:
           # This expects you to have a script called release which does a build for your packages and calls changeset publish
           publish: yarn release
@@ -143,20 +143,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js 12.x
-        uses: actions/setup-node@v2
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 12.x
+          node-version: 16.x
 
       - name: Install Dependencies
         run: yarn
 
       - name: Create Release Pull Request
-        uses: changesets/action@v1
+        uses: changesets/action@v1.2.0
         with:
           # this expects you to have a npm script called version that runs some logic and then calls `changeset version`.
           version: yarn version
